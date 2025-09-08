@@ -3,6 +3,12 @@ import sys
 default_limit = 1000
 sys.setrecursionlimit(default_limit*10)
 
+from DataStructures.List import array_list as arl
+from DataStructures.List import single_linked_list as sl
+from DataStructures.Stack import stack as s 
+from DataStructures.Queue import queue as q
+
+
 def new_logic():
     """
         Se crea una instancia del controlador
