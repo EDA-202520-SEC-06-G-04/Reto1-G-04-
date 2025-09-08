@@ -1,17 +1,17 @@
 import time
 import csv
-...
 csv.field_size_limit(2147483647)
-import sys
-...
-sys.setrecursionlimit(default_limit*10)
+
+from DataStructures.List import single_linked_list as lt
+from DataStructures.Queue import queue as q
+from DataStructures.Stack import stack as st
 
 def new_logic():
     """
     Crea el catalogo para almacenar las estructuras de datos
     """
     #TODO: Llama a las funciónes de creación de las estructuras de datos
-    pass
+    catalog = {}
 
 
 # Funciones para la carga de datos
