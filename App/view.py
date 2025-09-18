@@ -3,18 +3,21 @@ import sys
 default_limit = 1000
 sys.setrecursionlimit(default_limit*10)
 
+import tabulate as tabulate
+
 from DataStructures.List import array_list as arl
 from DataStructures.List import single_linked_list as sl
 from DataStructures.Stack import stack as s 
 from DataStructures.Queue import queue as q
-
+from App import logic as lg
 
 def new_logic():
     """
         Se crea una instancia del controlador
     """
     #TODO: Llamar la función de la lógica donde se crean las estructuras de datos
-    pass
+    control = lg.new_logic()
+    return control
 
 def print_menu():
     print("Bienvenido")
@@ -34,8 +37,10 @@ def load_data(control):
     Carga los datos
     """
     #TODO: Realizar la carga de datos
-    pass
-
+    filename = "Data/taxis-test.csv"
+    catalog = lg.load_data(control, filename)
+    print("Taxis cargados:", arl.size(catalog["array_list"]))
+            
 
 def print_data(control, id):
     """
@@ -59,10 +64,28 @@ def print_req_2(control):
     """
         Función que imprime la solución del Requerimiento 2 en consola
     """
-    # TODO: Imprimir el resultado del requerimiento 2
-    pass
+    metodo_pago = input("Ingrese el metodo de pago: ")
+    rta = lg.req_2(control, metodo_pago)
+    
+    lista = [
+        ["Tiempo de ejecucion en ms", rta["Tiempo de ejecución en ms"]], 
+        ["Total trayectos", rta["Total trayectos"]],
+        ["Tiempo promedio", rta["Tiempo promedio"]],
+        ["Costo total", rta["Costo total"]], 
+        ["Distancia promedio", rta["Distancia promedio"]],
+        ["Costo de peajes promedio", rta["Costo de peajes promedio"]],
+        ["Propinas promedio", rta["Propinas promedio"]],
+        ["Pasajeros frecuentes", f"{rta['Pasajeros frecuentes'][0]} pasajeros"],
+        ["Fecha más frecuente", f"{rta['Fecha más frecuente'][0]}"]
 
-
+    ]
+     
+    print(tabulate.tabulate(lista, headers=["Descripción", "Valor"], tablefmt="fancy_grid"))
+ 
+             
+             
+        
+     
 def print_req_3(control):
     """
         Función que imprime la solución del Requerimiento 3 en consola
@@ -79,7 +102,27 @@ def print_req_4(control):
         Función que imprime la solución del Requerimiento 4 en consola
     """
     # TODO: Imprimir el resultado del requerimiento 4
-    pass
+    filtro = input("ingrese le filtro(mayor o menor): ")
+    fecha_i = input("ingrese la fecha de inicio: ")
+    fecha_f = input("ingrese la fecha final: ")
+    rta = lg.req_4(control, filtro, fecha_i, fecha_f)
+    
+    
+    lista = [
+        ["Tiempo ejecución", rta["Tiempo ejecucion"]],
+        ["Filtro de selección", rta["Filtro de seleccion"]],
+        ["Conteo trayectos", rta["Conteo trayectos"]],
+        ["Barrio de origen", rta["Barrio de origen"]],
+        ["Barrio de destino", rta["Barrio de destino"]],
+        ["Distancia promedio", rta["Distancia promedio"]],
+        ["Tiempo promedio", rta["Tiempo promedio"]],
+        ["Costo promedio", rta["Costo promedio"]]
+    ]
+            
+
+    
+    print(tabulate.tabulate(lista, headers=["Descripción", "Valor"], tablefmt="fancy_grid"))
+    
 
 
 def print_req_5(control):
