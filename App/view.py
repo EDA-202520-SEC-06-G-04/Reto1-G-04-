@@ -49,7 +49,10 @@ def print_req_1(control):
         Función que imprime la solución del Requerimiento 1 en consola
     """
     # TODO: Imprimir el resultado del requerimiento 1
-    pass
+    from App.logic import new_logic, req_1
+    catalog = new_logic("Data/taxis-large.csv")
+    _=control
+    req_1(catalog)
 
 
 def print_req_2(control):
@@ -65,7 +68,10 @@ def print_req_3(control):
         Función que imprime la solución del Requerimiento 3 en consola
     """
     # TODO: Imprimir el resultado del requerimiento 3
-    pass
+    from App.logic import new_logic, req_3
+    catalog = new_logic("Data/taxis-large.csv")
+    _=control
+    req_3(catalog)
 
 
 def print_req_4(control):
@@ -81,7 +87,10 @@ def print_req_5(control):
         Función que imprime la solución del Requerimiento 5 en consola
     """
     # TODO: Imprimir el resultado del requerimiento 5
-    pass
+    from App.logic import new_logic, req_5
+    catalog = new_logic("Data/taxis-large.csv")
+    _=control
+    req_5(catalog)
 
 
 def print_req_6(control):
@@ -89,7 +98,10 @@ def print_req_6(control):
         Función que imprime la solución del Requerimiento 6 en consola
     """
     # TODO: Imprimir el resultado del requerimiento 6
-    pass
+    from App.logic import new_logic, req_6
+    catalog = new_logic("Data/taxis-large.csv")
+    _=control
+    req_6(catalog)
 
 
 def print_req_7(control):
