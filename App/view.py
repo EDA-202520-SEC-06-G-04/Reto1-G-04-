@@ -65,7 +65,10 @@ def print_req_3(control):
         Función que imprime la solución del Requerimiento 3 en consola
     """
     # TODO: Imprimir el resultado del requerimiento 3
-    pass
+    from App.logic import new_logic, req_3
+    catalog = new_logic("Data/taxis-large.csv")
+    _=control
+    req_3(catalog)
 
 
 def print_req_4(control):
